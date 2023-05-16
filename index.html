@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ar.js/1.9.1/ar.min.js"></script>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#scene {
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+</head>
+<body>
+<div id="scene"></div>
+<script>
+var scene = document.getElementById("scene");
+var ar = new AR.js(scene);
+
+// 3D 画像をロードする
+var image = new Image();
+image.src = "https://key1217.github.io/3Dtest/Skull.glb";
+
+// 3D 画像をカメラに配置する
+var material = new AR.js.Material({
+  image: image
+});
+var plane = new AR.js.Plane({
+  material: material
+});
+ar.add(plane);
+
+// 3D 画像をレンダリングする
+ar.render();
+</script>
+</body>
+</html>
